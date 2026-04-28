@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMIN | Ingeniería y Hogar</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-soft: #0f172a;
+            --accent: #ffffff; 
+            --accent-dark: #1e40af; 
+            --text-dark: #1e293b;
+            --white: #ffffff;
+            --facebook: #1877F2;
+            --instagram: #E4405F;
+            --whatsapp: #25D366;
+            /* Efecto cristal compartido */
+            --glass: rgba(255, 255, 255, 0.1);
+            --blur: blur(15px);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--white);
+            scroll-behavior: smooth;
+            font-optical-sizing: auto;
+        }
+
+        /* --- VIDEO DE FONDO FIJO --- */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-background {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+            z-index: -1;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: var(--glass);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+            transition: 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-text { 
+            font-size: 35px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .logo-icons {
+            display: flex;
+            gap: 5px;
+            font-size: 30px;
+            color: var(--white);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-right: 25px;
+            border-right: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-socials a {
+            font-size: 40px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-socials .fa-whatsapp { color: var(--whatsapp); }
+        .nav-socials .fa-facebook { color: var(--facebook); }
+        .nav-socials .fa-instagram { color: var(--instagram); }
+
+        .nav-socials a:hover { transform: scale(1.2); }
+
+        .btn-pill {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 12px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-pill:hover {
+            background: #000000;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* --- CONTENIDO --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 160px 10% 80px;
+        }
+
+        .hero h1 { 
+            font-size: clamp(28px, 6.4vw, 56px); 
+            margin: 0; 
+            line-height: 1.1; 
+            font-family: "Boogaloo", sans-serif;
+            font-weight: 400;
+        }
+        .hero p { font-size: 20px; color: #cbd5e1; max-width: 650px; margin: 30px auto 20px; }
+
+        /* --- BENTO GRID TRANSPARENTE --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--glass); /* Transparencia igual al menú */
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            padding: 45px;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.4s;
+            text-align: left;
+        }
+
+        .card:hover { 
+            transform: translateY(-10px); 
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 { font-size: 26px; margin: 0; }
+        .card p { color: #e2e8f0; line-height: 1.6; }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin: 5px 5px 0 0;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            font-size: 13px; 
+            color: rgba(255,255,255,0.4); 
+            position: relative;
+        }
+
+        /* --- AJUSTES AUTOMÁTICOS PARA MÓVILES --- */
+        @media (max-width: 768px) {
+            nav { padding: 10px 4%; }
+            .logo-text { font-size: 24px; }
+            .logo-icons { font-size: 20px; }
+            
+            .nav-right { gap: 10px; }
+            .nav-socials { 
+                gap: 12px; 
+                padding-right: 12px; 
+                border-right-width: 1px; 
+            }
+            .nav-socials a { font-size: 22px; }
+            
+            .btn-pill { 
+                padding: 8px 16px; 
+                font-size: 12px; 
+            }
+
+            .hero { padding: 120px 5% 40px; }
+            .hero p { font-size: 16px; }
+
+            .grid-container { 
+                grid-template-columns: 1fr; /* Fuerza una sola columna en móviles */
+                gap: 20px; 
+            }
+            .card { padding: 30px; border-radius: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline class="video-background">
+            <source src="video4.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <nav data-aos="fade-down">
+        <a href="#" class="logo-container">
+            <span class="logo-text">LUMIN</span>
+            <div class="logo-icons">
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-house"></i>
+            </div>
+        </a>
+        
+        <div class="nav-right">
+            <div class="nav-socials">
+                <a href="https://wa.me/50376823148" target="_blank" class="fa-brands fa-whatsapp"></a>
+                <a href="https://www.facebook.com/share/1H2RHATR38/" target="_blank" class="fa-brands fa-facebook"></a>
+                <a href="https://www.instagram.com/lumin1_2026?igsh=MWpyeGZmN2treDFqZA==" target="_blank" class="fa-brands fa-instagram"></a>
+            </div>
+            <a href="descarga.html" class="btn-pill">Descarga la App</a>
+        </div>
+    </nav>
+    <header class="hero">
+        <h1 data-aos="zoom-out-up">Promoviendo un futuro e innovación <br>para hogares inteligentes.</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Automatización de iluminación y control de agua diseñada por estudiantes de ITCA-FEPADE.</p>
+        
+        <div id="detalles" class="grid-container">
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-header">
+                    <i class="fa-solid fa-bolt-lightning" style="color: var(--accent); font-size: 40px;"></i>
+                    <h3>Nuestra Visión</h3>
+                </div>
+                <p>Llevar el IoT a los hogares salvadoreños con hardware robusto y software intuitivo.</p>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="450">
+                <div class="card-header">
+                    <i class="fa-solid fa-users" style="color: var(--accent); font-size: 40px;"></i>
+                    <h3>El Equipo LUMIN</h3>
+                </div>
+                <p>Ingeniería Eléctrica ELE 21B</p>
+                <div style="margin-top: 20px;">
+                    <span class="tag">Walter - CEO</span>
+                    <span class="tag">Oscar - CTO</span>
+                    <span class="tag">Everth - Software</span>
+                    <span class="tag">Antonio - Ops</span>
+                    <span class="tag">Jordan - Sales</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="informacion.html" class="btn-pill" data-aos="fade-up" data-aos-delay="600">Más información</a>
+            <a href="usar.html" class="btn-pill" data-aos="fade-up" data-aos-delay="750">Cómo usar LUMIN</a>
+            <a href="privacidad.html" class="btn-pill" data-aos="fade-up" data-aos-delay="900">Términos y Privacidad</a>
+        </div>
+    </header>
+
+    <footer>
+        &copy; 2026 LUMIN Project - San Salvador, El Salvador.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

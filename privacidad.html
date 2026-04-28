@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMIN | Privacidad y Términos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-soft: #0f172a;
+            --accent: #ffffff; 
+            --accent-yellow: #facc15;
+            --text-dark: #1e293b;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --blur: blur(15px);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- FONDO DE VIDEO --- */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-background {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+            z-index: -1;
+        }
+
+        /* --- NAVEGACIÓN (Sin redes) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: var(--glass);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+            transition: 0.3s ease;
+        }
+
+        .logo-container:hover { transform: scale(1.1); }
+
+        .logo-text { 
+            font-size: 35px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .logo-icons {
+            display: flex;
+            gap: 5px;
+            font-size: 30px;
+            color: var(--white);
+        }
+
+        /* --- CONTENIDO --- */
+        .container { 
+            max-width: 900px; 
+            margin: 120px auto 50px; 
+            padding: 0 20px; 
+        }
+        
+        .section {
+            background: var(--glass);
+            backdrop-filter: var(--blur);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 { font-family: 'Boogaloo', sans-serif; font-size: 3rem; color: var(--white); text-align: center; margin-bottom: 40px; }
+        h2 { color: var(--accent-yellow); border-bottom: 2px solid var(--accent-yellow); display: inline-block; padding-bottom: 5px; margin-top: 0; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        footer { text-align: center; padding: 40px; color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            nav { padding: 10px 4%; }
+            .logo-text { font-size: 24px; }
+            .logo-icons { font-size: 20px; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop playsinline class="video-background">
+            <source src="video4.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <nav data-aos="fade-down">
+        <a href="index.html" class="logo-container">
+            <span class="logo-text">LUMIN</span>
+            <div class="logo-icons">
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-house"></i>
+            </div>
+        </a>
+    </nav>
+
+    <div class="container" data-aos="fade-up">
+        <h1>Centro de Transparencia</h1>
+        
+        <div class="section" data-aos="fade-up" data-aos-delay="100">
+            <h2>1. Política de Privacidad</h2>
+            <p>En **LUMIN**, la privacidad de tu hogar es nuestra prioridad. Esta política describe cómo manejamos la información cuando utilizas nuestra App y el complemento de Google Home.</p>
+            <ul>
+                <li><strong>Datos Recopilados:</strong> Solo recopilamos el correo electrónico para la autenticación de la cuenta y el estado de los dispositivos (encendido/apagado) para permitir el control remoto.</li>
+                <li><strong>Uso de Datos:</strong> La información se utiliza exclusivamente para el funcionamiento técnico del controlador inteligente (luces y bombas de agua).</li>
+                <li><strong>Terceros:</strong> No compartimos, vendemos ni distribuimos tus datos personales a terceros. La integración con Google Home se realiza de forma cifrada.</li>
+                <li><strong>Seguridad:</strong> Implementamos medidas de seguridad para proteger tus credenciales y el acceso a tus dispositivos IoT.</li>
+            </ul>
+        </div>
+
+        <div class="section" data-aos="fade-up" data-aos-delay="200">
+            <h2>2. Términos de Servicio</h2>
+            <p>Al utilizar el hardware y software de LUMIN, aceptas los siguientes términos:</p>
+            <ul>
+                <li><strong>Uso Permitido:</strong> El sistema está diseñado para la automatización residencial de iluminación y bombas de agua.</li>
+                <li><strong>Responsabilidad:</strong> El usuario es responsable del uso adecuado de la aplicación móvil y el dispsitivo fisico.</li>
+                <li><strong>Actualizaciones:</strong> LUMIN se reserva el derecho de actualizar el software para mejorar la seguridad y funcionalidad del servicio.</li>
+                <li><strong>Contacto:</strong> Para dudas técnicas o legales, puedes contactar al equipo liderado por Walter Menjívar en San Salvador.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        Última actualización: Abril 2026 | Proyecto de Ingeniería Eléctrica - ITCA-FEPADE.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://Obed956.github.io/Lumin-Web/sitemap.xml

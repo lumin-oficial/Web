@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMIN | Innovación en Hogares Inteligentes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-soft: #0f172a;
+            --accent: #ffffff; 
+            --accent-yellow: #facc15;
+            --text-dark: #1e293b;
+            --white: #ffffff;
+            --facebook: #1877F2;
+            --instagram: #E4405F;
+            --whatsapp: #25D366;
+            --glass: rgba(255, 255, 255, 0.1);
+            --blur: blur(15px);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--white);
+            margin: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: var(--glass);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+            transition: 0.3s ease;
+        }
+
+        .logo-container:hover { transform: scale(1.1); }
+
+        .logo-text { 
+            font-size: 35px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .logo-icons {
+            display: flex;
+            gap: 5px;
+            font-size: 30px;
+            color: var(--white);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-socials a { font-size: 40px; transition: 0.3s; text-decoration: none; }
+        .nav-socials .fa-whatsapp { color: var(--whatsapp); }
+        .nav-socials .fa-facebook { color: var(--facebook); }
+        .nav-socials .fa-instagram { color: var(--instagram); }
+        .nav-socials a:hover { transform: scale(1.2); }
+
+        .btn-pill {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 12px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-pill:hover {
+            background: #000000;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* --- DISEÑO DE LA PÁGINA --- */
+        header {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), 
+                        url('https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            text-align: center;
+            padding: 100px 20px 20px;
+        }
+
+        .logo-main { 
+            font-family: 'Boogaloo', sans-serif;
+            font-size: clamp(3rem, 10vw, 5rem); 
+            font-weight: 400; 
+            letter-spacing: 2px; 
+            color: var(--white); 
+        }
+        .slogan { font-size: 1.2rem; color: #cbd5e1; }
+
+        .container { max-width: 900px; margin: -50px auto 50px; padding: 0 20px; }
+        
+        .section {
+            background: var(--glass);
+            backdrop-filter: var(--blur);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 { color: var(--accent-yellow); border-bottom: 2px solid var(--accent-yellow); display: inline-block; padding-bottom: 5px; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .footer { text-align: center; padding: 40px; color: rgba(255,255,255,0.4); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            nav { padding: 10px 4%; }
+            .logo-text { font-size: 24px; }
+            .btn-pill { padding: 8px 16px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav data-aos="fade-down">
+        <a href="index.html" class="logo-container" data-aos="fade-right">
+            <span class="logo-text">LUMIN</span>
+            <div class="logo-icons">
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-house"></i>
+            </div>
+        </a>
+        <div class="nav-right" data-aos="fade-left">
+            <div class="nav-socials">
+                <a href="https://wa.me/50376823148" target="_blank" class="fa-brands fa-whatsapp"></a>
+                <a href="https://www.facebook.com/share/1H2RHATR38/" target="_blank" class="fa-brands fa-facebook"></a>
+                <a href="https://www.instagram.com/lumin1_2026?igsh=MWpyeGZmN2treDFqZA==" target="_blank" class="fa-brands fa-instagram"></a>
+            </div>
+        </div>
+    </nav>
+
+    <header data-aos="fade">
+        <h1 class="logo-main" data-aos="zoom-in">LUMIN</h1>
+        <p class="slogan">"Promoviendo un futuro e innovación para hogares inteligentes"</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="section">
+            <h2>Sobre LUMIN</h2>
+            <p>Somos una empresa de base tecnológica dedicada a la automatización residencial inteligente. Nuestra misión es desarrollar interruptores inteligentes de alta fiabilidad que se integren sin fricciones en el ecosistema digital, garantizando seguridad y confort.</p>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <h2>Misión</h2>
+                <p>Garantizar seguridad, confort y conectividad constante a través de dispositivos integrados.</p>
+            </div>
+            <div class="section">
+                <h2>Visión</h2>
+                <p>Convertirnos en la plataforma de iluminación inteligente preferida, integrando la luz de manera eficiente en cada hogar.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Nuestro Producto</h2>
+            <p>Un dispositivo diseñado para integrarse a la instalación eléctrica existente, permitiendo controlar cualquier foco o bomba de agua desde tu smartphone.</p>
+            <ul>
+                <li><strong>Control Remoto:</strong> Gestión desde cualquier lugar con internet.</li>
+                <li><strong>Ahorro Energético:</strong> Reduce el consumo por descuidos.</li>
+                <li><strong>Comoidad:</strong> Controla sin tener que hacer un enfuezo fisico mas que el de tomar el tefono. </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Líderes del Proyecto</h2>
+            <p>Nuestro equipo está conformado por técnicos especialistas de ITCA-FEPADE:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li><i class="fa-solid fa-user-tie"></i> <strong>Walter Menjívar:</strong> CEO</li>
+                <li><i class="fa-solid fa-microchip"></i> <strong>Oscar Palacios:</strong> Director de Tecnología </li>
+                <li><i class="fa-solid fa-bolt"></i> <strong>Antonio Nieto:</strong> Director de Operaciones </li>
+                <li><i class="fa-solid fa-code"></i> <strong>Everth Vásquez:</strong> Director de Software </li>
+                <li><i class="fa-solid fa-bullhorn"></i> <strong>Jordán Ponce:</strong> Director de Ventas </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        LUMIN - San Salvador, El Salvador 2026.
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+
+</body>
+</html>
