@@ -14,6 +14,7 @@
     <style>
         :root {
             --bg-soft: #0f172a;
+            --accent-yellow: #facc15;
             --accent: #ffffff; 
             --text-dark: #1e293b;
             --white: #ffffff;
@@ -88,6 +89,10 @@
             transition: 0.3s ease;
         }
 
+        .logo-container:hover {
+            transform: scale(1.1);
+        }
+
         .logo-text { 
             font-size: 35px;
             font-weight: 700;
@@ -112,6 +117,8 @@
             display: flex;
             align-items: center;
             gap: 25px;
+            padding-right: 25px;
+            border-right: 2px solid rgba(255,255,255,0.1);
         }
 
         .nav-socials a { font-size: 40px; transition: 0.3s; text-decoration: none; }
@@ -137,25 +144,72 @@
             transform: scale(1.1);
         }
 
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 100px 20px;
-            text-align: center;
+        /* --- CONTENEDOR DE MANUALES --- */
+        .container { 
+            max-width: 1000px; 
+            margin: 120px auto 50px; 
+            padding: 0 20px; 
         }
 
-        h1 { font-family: 'Quicksand', sans-serif; font-size: clamp(3rem, 10vw, 4rem); margin-bottom: 20px; }
-        p { font-size: 1.2rem; max-width: 600px; color: #cbd5e1; margin-bottom: 40px; }
+        header.content-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; color: #cbd5e1; }
+
+        .section {
+            background: var(--glass);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .section h2 { 
+            color: var(--accent-yellow); 
+            font-size: 1.8rem; 
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(250, 204, 21, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .section h3 { color: var(--white); font-size: 1.4rem; margin-top: 25px; margin-bottom: 15px; }
+        .section h4 { color: var(--accent-yellow); font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .step-list { list-style: none; padding: 0; }
+        .step-list li { margin-bottom: 15px; padding-left: 35px; position: relative; line-height: 1.6; color: #e2e8f0; }
+        .step-list li::before { 
+            content: "\f058"; 
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900; 
+            position: absolute; 
+            left: 0; 
+            color: var(--accent-yellow); 
+        }
+
+        .important-note { background: rgba(250, 204, 21, 0.1); border-left: 4px solid var(--accent-yellow); padding: 20px; border-radius: 12px; margin: 20px 0; font-size: 0.95rem; color: #fef08a; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        
+        footer { text-align: center; padding: 40px; color: rgba(255,255,255,0.4); font-size: 0.9rem; }
 
         @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
             nav { padding: 10px 4%; }
-            .logo-text { font-size: 24px; }
+            .nav-socials { 
+                gap: 15px; 
+                padding-right: 15px; 
+                border-right-width: 1px; 
+            }
             .nav-socials a { font-size: 22px; }
-            .nav-right { gap: 10px; }
-            .btn-pill { padding: 8px 16px; font-size: 12px; }
         }
     </style>
 </head>
@@ -168,26 +222,167 @@
     <div class="hero-overlay"></div>
 
     <nav data-aos="fade-down">
-        <a href="index.html" class="logo-container">
+        <a href="index.html" class="logo-container" data-aos="fade-right">
             <span class="logo-text">LUMIN</span>
             <div class="logo-icons">
                 <i class="fa-solid fa-wifi"></i>
                 <i class="fa-solid fa-house"></i>
             </div>
         </a>
-        <div class="nav-right">
+        <div class="nav-right" data-aos="fade-left">
             <div class="nav-socials">
                 <a href="https://wa.me/50376823148" target="_blank" class="fa-brands fa-whatsapp"></a>
                 <a href="https://www.facebook.com/share/1H2RHATR38/" target="_blank" class="fa-brands fa-facebook"></a>
                 <a href="https://www.instagram.com/lumin1_2026?igsh=MWpyeGZmN2treDFqZA==" target="_blank" class="fa-brands fa-instagram"></a>
             </div>
+            <a href="https://github.com/lumin-oficial/Web/releases/download/Manual/MANUAL.DE.USO.pdf" class="btn-pill" download>Descargar Manual</a>
         </div>
     </nav>
 
-    <div class="content">
-        <h1 data-aos="zoom-in">Cómo usar LUMIN</h1>
-        <p data-aos="fade-up" data-aos-delay="200">Pronto encontrarás aquí tutoriales y guías paso a paso para configurar tu hogar inteligente.</p>
+    <div class="container">
+        <header class="content-header" data-aos="fade-up">
+            <h1>Centro de Ayuda</h1>
+            <p class="subtitle">Guía completa de instalación y operación de tu ecosistema LUMIN</p>
+        </header>
+
+        <!-- 1. DESCARGA -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-solid fa-download"></i> Descarga e Instalación</h2>
+            <p>Obtén la aplicación oficial de forma directa y segura:</p>
+            <ul class="step-list">
+                <li><strong>Paso 1:</strong> Abre el navegador en tu móvil (Chrome/Safari) e ingresa a nuestra web.</li>
+                <li><strong>Paso 2:</strong> En el menú principal, presiona el botón "Descargar App".</li>
+                <li><strong>Paso 3:</strong> Presiona "Descargar para Android". El archivo LUMIN_v1.apk comenzará a bajarse.</li>
+            </ul>
+            <div class="important-note">
+                <strong>Nota de instalación:</strong> Al finalizar, abre el archivo. Si aparece un aviso de seguridad, selecciona "Permitir desde esta fuente" para completar la instalación.
+            </div>
+        </div>
+
+        <!-- 2. CONFIGURACIÓN RED -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-solid fa-wifi"></i> Configuración de Red Inicial</h2>
+            <p>Conecta tu dispositivo a la nube por primera vez:</p>
+            <ul class="step-list">
+                <li><strong>Encendido:</strong> Conecta tu caja Lumin. Se activará la red <strong>LUMIN_Configuracion</strong>.</li>
+                <li><strong>Conexión:</strong> Desde los ajustes Wi-Fi de tu móvil, conéctate a la red "LUMIN_Configuracion" (sin contraseña).</li>
+                <li><strong>Portal:</strong> Se abrirá automáticamente una ventana de configuración. Si no ocurre, intenta navegar en Chrome.</li>
+                <li><strong>Escaneo:</strong> Presiona configurar Wi-Fi y selecciona tu red doméstica (2.4 GHz).</li>
+                <li><strong>Finalización:</strong> Ingresa tu contraseña y presiona Conectar. La red de configuración desaparecerá y el equipo se enlazará a tu router.</li>
+                <li><strong>Desactivación:</strong> La caja guarda la clave, apaga la red abierta y se conecta definitivamente a tu nube.</li>
+            </ul>
+        </div>
+
+        <!-- 3. ACCESO Y SEGURIDAD -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-solid fa-user-shield"></i> Acceso y Registro</h2>
+            <div class="grid">
+                <div>
+                    <h3>Usuario Nuevo</h3>
+                    <p>Ve a "Crear Cuenta", ingresa un correo válido y una contraseña (mínimo 6 caracteres). Presiona REGISTRARSE.</p>
+                </div>
+                <div>
+                    <h3>Iniciar Sesión</h3>
+                    <p>Ingresa tus credenciales registradas y presiona INICIAR SESIÓN para ver tu panel personalizado.</p>
+                </div>
+            </div>
+            <div class="important-note">
+                ¿Olvidaste tu clave? Usa el enlace de recuperación para recibir un correo de restablecimiento vía Firebase.
+            </div>
+        </div>
+
+        <!-- 4. VINCULACIÓN QR -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-solid fa-qrcode"></i> Vinculación por Código QR</h2>
+            <p>Emparejamiento óptico inmediato:</p>
+            <ul class="step-list">
+                <li>Presiona <strong>"VINCULAR NUEVO NODO"</strong> en la pantalla de inicio.</li>
+                <li>Otorga permisos de cámara cuando el sistema lo solicite.</li>
+                <li>Apunta al código QR físico adherido a tu caja de control.</li>
+                <li>La app guardará el identificador automáticamente y mostrará tus relés.</li>
+            </ul>
+        </div>
+
+        <!-- 5. PANEL PRINCIPAL -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-solid fa-gauge-high"></i> Panel de Control</h2>
+            <h3>Monitoreo en Tiempo Real</h3>
+            <ul class="step-list">
+                <li><strong>Barra Superior:</strong> 🟢 <em>En Línea</em> (Todo OK), 🟠 <em>Fuera de Línea</em> (Caja sin energía/Wi-Fi), 🔴 <em>Nube Desconectada</em> (Móvil sin datos).</li>
+                <li><strong>Truco:</strong> Toca la barra para forzar reconexión; mantén presionado para pruebas locales.</li>
+            </ul>
+            <h3>Operación de Canales</h3>
+            <ul class="step-list">
+                <li><strong>Vibración Háptica:</strong> Cada toque genera una pequeña vibración de confirmación.</li>
+                <li><strong>Protección de Parpadeo:</strong> La app bloquea cambios rápidos para proteger la vida útil de tus relés.</li>
+                <li><strong>Renombrar:</strong> Mantén presionado un botón para cambiar su alias (ej: "Extractor" o "Luces Fachada").</li>
+                <li><strong>Alertas:</strong> Recibirás notificaciones si el sistema se conecta o desconecta.</li>
+            </ul>
+        </div>
+
+        <!-- 6. HORARIOS -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-solid fa-clock"></i> Automatización y Horarios</h2>
+            <p>Programa encendidos y apagados automáticos:</p>
+            <ul class="step-list">
+                <li>Presiona el botón <strong>"+"</strong> en la pestaña de Horarios.</li>
+                <li>Selecciona el canal, la acción (Encender/Apagar), la hora y los días de la semana.</li>
+                <li><strong>Reglas Inteligentes:</strong> El sistema prioriza siempre la decisión humana y evita parpadeos eléctricos si el equipo ya está en el estado deseado.</li>
+                <li><strong>Prioridad Humana:</strong> Si apagas manualmente algo programado, el sistema respetará tu decisión por encima del horario.</li>
+            </ul>
+            <h3>Gestión</h3>
+            <ul class="step-list">
+                <li><strong>Pausa:</strong> Usa el switch a la derecha de cada rutina para "dormirla" temporalmente.</li>
+                <li><strong>Eliminar:</strong> Mantén presionada la tarjeta del horario o desliza hacia un lado para borrarla.</li>
+            </ul>
+        </div>
+
+        <!-- 7. MODO LOCAL -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-solid fa-shield-halved"></i> Modo Local (Sin Internet)</h2>
+            <h3>¿Cómo funciona?</h3>
+            <p>Si la nube falla, la caja activa un canal de contingencia protegido por llave de seguridad:</p>
+            <ul class="step-list">
+                <li><strong>Detección:</strong> Tras 15 segundos sin nube, se activa la red de emergencia.</li>
+                <li><strong>Retorno:</strong> Cada 45 segundos, la caja intenta volver al modo normal automáticamente.</li>
+            </ul>
+            <h3>Puesta en práctica</h3>
+            <ul class="step-list">
+                <li><strong>Paso 1:</strong> Identifica el estado "Dispositivo fuera de línea" en la app.</li>
+                <li><strong>Paso 2:</strong> Conéctate al Wi-Fi: <strong>LUMIN_Respaldo</strong> (Clave: <code>lumin12345</code>).</li>
+                <li><strong>Paso 3:</strong> Vuelve a la app y controla tus equipos con respuesta instantánea (cero retraso).</li>
+            </ul>
+            <div class="important-note">
+                <i class="fa-solid fa-triangle-exclamation"></i> <strong>Aviso:</strong> Mientras uses LUMIN_Respaldo, tu móvil no recibirá WhatsApp ni correos, ya que es una red dedicada exclusivamente al hardware.
+            </div>
+        </div>
+
+        <!-- 8. GOOGLE HOME -->
+        <div class="section" data-aos="fade-up">
+            <h2><i class="fa-brands fa-google"></i> Google Home y Voz (Manos Libres)</h2>
+            <h4>1. Configuración</h4>
+            <ul class="step-list">
+                <li>En la App Google Home, ve a <em>Ajustes > Funciona con Google</em>.</li>
+                <li>Busca <strong>Lumin</strong> y vincula tu cuenta de correo y contraseña.</li>
+            </ul>
+            <h4>2. Asignación Crítica</h4>
+            <ul class="step-list">
+                <li><strong>Regla de Oro:</strong> Al asignar habitaciones, selecciona <strong>"Otro"</strong> para evitar conflictos.</li>
+                <li>Esto permite mantener el control de canales limpio y evita interferencias con rutinas automáticas.</li>
+            </ul>
+            <h4>3. Comandos de Voz</h4>
+            <ul class="step-list">
+                <li><em>"Hey Google, enciende las luces del patio."</em></li>
+                <li><em>"Hey Google, enciende sala."</em></li>
+                <li><em>"Hey Google, apaga bomba."</em></li>
+            </ul>
+        </div>
+
     </div>
+
+    <footer>
+        LUMIN Project - Manual de Usuario v1.0 | San Salvador, El Salvador 2026
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
