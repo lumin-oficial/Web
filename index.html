@@ -229,21 +229,23 @@
 
         /* --- AJUSTES AUTOMÁTICOS PARA MÓVILES --- */
         @media (max-width: 768px) {
-            nav { padding: 10px 4%; }
-            .logo-text { font-size: 24px; }
-            .logo-icons { font-size: 20px; }
+            nav { padding: 10px 3%; gap: 10px; }
+            .logo-container { gap: 8px; flex-shrink: 0; }
+            .logo-text { font-size: 20px; }
+            .logo-icons { font-size: 18px; gap: 8px; }
             
-            .nav-right { gap: 20px; }
+            .nav-right { gap: 10px; }
             .nav-socials { 
-                gap: 15px; 
-                padding-right: 20px; 
+                gap: 10px; 
+                padding-right: 10px; 
                 border-right-width: 1px; 
             }
-            .nav-socials a { font-size: 22px; }
+            .nav-socials a { font-size: 20px; }
             
             .btn-pill { 
-                padding: 8px 16px; 
-                font-size: 12px; 
+                padding: 8px 12px; 
+                font-size: 11px;
+                white-space: nowrap;
             }
 
             .hero { padding: 120px 5% 40px; }
